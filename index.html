@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Project</title>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -36,7 +37,7 @@
 
         <div id="starsignInput">
           <label for="starsignList">What is your starsign?</label>
-          <select id="starList">
+          <select id="starsignList">
             <option value="Aries">Aries</option>
             <option value="Taurus">Taurus</option>
             <option value="Gemini">Gemini</option>
@@ -114,6 +115,16 @@
 
       addStarsignToPage(value);
     });
+
+
+    document
+      .getElementById("starsignList")
+      .addEventListener("change", function(event) {
+        addStarsignToPage(event.target.value);
+
+      });
+
+
 
     function addStarsignToPage(starsign) {
       let pelement = document.getElementById("starsignpara");
