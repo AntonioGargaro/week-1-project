@@ -1,5 +1,40 @@
+.starsign-fieldset {
+    display: flex;
+}
+
+.starsign-input-row {
+    display: flex;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.input-row-item {
+    max-width: 50%;
+}
+
 #starsignpara {
 text-align: center;
 font-weight: bold;
 
+}
+
+@media screen and (min-width:40rem) {
+    main {
+        max-width: 40rem;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+}
+
+@media screen and (max-width:420px) {
+    .starsign-input-row {
+        flex-direction: column;
+    }
+
+    .input-row-item {
+        max-width: 100%;
+    }
 }

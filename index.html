@@ -7,53 +7,56 @@
   </head>
 
   <body>
-    <FORM NAME="myform" ACTION="" METHOD="GET">
-      <p>
-        <INPUT
-          id="name"
-          TYPE="text"
-          placeholder="your name"
-          NAME="inputbox"
-          VALUE=""
-        />
-        <label for="name">Enter your name...</label>
-      </p>
-      <fieldset>
-        <legend>Starsign Horoscope</legend>
+
+    <main>
+        <FORM NAME="myform" ACTION="" METHOD="GET">
         <p>
-          <label for="myList">Do you know your starsign?</label>
-          <select id="myList">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
+            <INPUT
+            id="name"
+            TYPE="text"
+            placeholder="your name"
+            NAME="inputbox"
+            VALUE=""
+            />
+            <label for="name">Enter your name...</label>
         </p>
+        <fieldset class="starsign-fieldset">
+            <legend>Starsign Horoscope</legend>
+            <div class ="starsign-input-row">
+                <label for="myList" class="flex-grow input-row-item">Do you know your starsign?</label>
+                <select id="myList" class="flex-grow input-row-item">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
 
-        <!--<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)"> -->
+            <!--<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)"> -->
 
-        <div id="dateInput" style="display:none;">
-          <input id="bday" type="date" name="bday" min="1900-01-01" />
-          <label for="bday">When is your birthday?</label>
-        </div>
+            <div class ="starsign-input-row" id="dateInput" style="display:none;">
+              <label for="bday" class="flex-grow input-row-item">When is your birthday?</label>
+              <input id="bday" type="date" name="bday" min="1900-01-01"  class="flex-grow input-row-item"/>
+            </div>
 
-        <div id="starsignInput">
-          <label for="starsignList">What is your starsign?</label>
-          <select id="starsignList">
-            <option value="Aries">Aries</option>
-            <option value="Taurus">Taurus</option>
-            <option value="Gemini">Gemini</option>
-            <option value="Cancer">Cancer</option>
-            <option value="Leo">Leo</option>
-            <option value="Virgo">Virgo</option>
-            <option value="Libra">Libra</option>
-            <option value="Scorpio">Scorpio</option>
-            <option value="Sagittarius">Sagittarius</option>
-            <option value="Capricorn">Capricorn</option>
-            <option value="Aquarius">Aquarius</option>
-            <option value="Pisces">Pisces</option>
-          </select>
-        </div>
-      </fieldset>
-    </FORM>
+            <div class ="starsign-input-row" id="starsignInput">
+                <label for="starsignList" class="flex-grow input-row-item">What is your starsign?</label>
+                <select id="starsignList" class="flex-grow input-row-item">
+                    <option value="Aries">Aries</option>
+                    <option value="Taurus">Taurus</option>
+                    <option value="Gemini">Gemini</option>
+                    <option value="Cancer">Cancer</option>
+                    <option value="Leo">Leo</option>
+                    <option value="Virgo">Virgo</option>
+                    <option value="Libra">Libra</option>
+                    <option value="Scorpio">Scorpio</option>
+                    <option value="Sagittarius">Sagittarius</option>
+                    <option value="Capricorn">Capricorn</option>
+                    <option value="Aquarius">Aquarius</option>
+                    <option value="Pisces">Pisces</option>
+                </select>
+            </div>
+        </fieldset>
+        </FORM>
+    </main>
   </body>
 
   <script>
