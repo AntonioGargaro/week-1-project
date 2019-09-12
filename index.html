@@ -17,24 +17,25 @@
           <header>
             <h2>Enter your details to find out your horoscope:</h2>
           </header>
-          <FORM NAME="myform" ACTION="" METHOD="GET">
+          <FORM NAME="firstForm">
               <label for="name">Enter your name...</label>
               <INPUT
                 id="name"
                 TYPE="text"
                 placeholder="your name"
-                NAME="inputbox"
+                NAME="name"
                 VALUE=""
               />
-              
-            
+              <button aria-label="Submit name to form" id="submitName" type="button">Submit</button>
+            </FORM>
+            <FORM name="starsignForm">
             <fieldset class="starsign-fieldset">
               <legend>Starsign Horoscope</legend>
               <div class="starsign-input-row">
                 <label for="myList" class="flex-grow input-row-item"
                   >Do you know your starsign?</label
                 >
-                <select id="myList" class="flex-grow input-row-item">
+                <select id="myList" class="flex-grow input-row-item" disabled>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
@@ -56,14 +57,14 @@
                   name="bday"
                   min="1900-01-01"
                   class="flex-grow input-row-item"
-                />
+                 disabled/>
               </div>
 
               <div class="starsign-input-row" id="starsignInput">
                 <label for="starsignList" class="flex-grow input-row-item"
                   >What is your starsign?</label
                 >
-                <select id="starsignList" class="flex-grow input-row-item">
+                <select id="starsignList" class="flex-grow input-row-item" disabled>
                   <option value="Aries">Aries</option>
                   <option value="Taurus">Taurus</option>
                   <option value="Gemini">Gemini</option>
@@ -98,6 +99,18 @@
   </body>
 
   <script>
+    var name;
+document.getElementById("submitName").addEventListener("click", function(event) {
+name = document.getElementById("name")["value"];
+if (name.length <= 2){
+  alert("Name is too short!");
+  return;
+}
+document.getElementById("myList").removeAttribute("disabled");
+document.getElementById("bday").removeAttribute("disabled");
+document.getElementById("starsignList").removeAttribute("disabled");
+});
+
     document
       .getElementById("myList")
       .addEventListener("change", function(event) {
@@ -219,10 +232,10 @@
           "src",
           "Images/" + animal.toLowerCase() + ".png"
         );
-        zodiacPic.setAttribute("alt", "?'s zodiac animal, a " + animal);
+        zodiacPic.setAttribute("alt", name + "'s zodiac animal, a " + animal);
         zodiacPic.classList.add("results-img");
 
-        let figcapNode = document.createTextNode("This is ?'s zodiac animal, the "+animal+" for the year " + year);
+        let figcapNode = document.createTextNode("This is " + name + "'s zodiac animal, the "+animal+" for the year " + year);
         figcap.appendChild(figcapNode);
 
         figure.setAttribute("id", "animalImage");
