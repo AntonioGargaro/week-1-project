@@ -2,71 +2,95 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Project</title>
+    <title>Horoscope Calculator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <main>
-      <FORM NAME="myform" ACTION="" METHOD="GET">
-        <p>
-          <INPUT
-            id="name"
-            TYPE="text"
-            placeholder="your name"
-            NAME="inputbox"
-            VALUE=""
-          />
-          <label for="name">Enter your name...</label>
-        </p>
-        <fieldset class="starsign-fieldset">
-          <legend>Starsign Horoscope</legend>
-          <div class="starsign-input-row">
-            <label for="myList" class="flex-grow input-row-item"
-              >Do you know your starsign?</label
-            >
-            <select id="myList" class="flex-grow input-row-item">
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </div>
+      <section id="horoscopeCalc">
+        <header>
+        <h1>Calculate your horoscope here!</h1>
+      </header>
+        <section id="input">
+          <header>
+            <h2>Enter your details to find out your horoscope:</h2>
+          </header>
+          <FORM NAME="myform" ACTION="" METHOD="GET">
+            <p>
+              <INPUT
+                id="name"
+                TYPE="text"
+                placeholder="your name"
+                NAME="inputbox"
+                VALUE=""
+              />
+              <label for="name">Enter your name...</label>
+            </p>
+            <fieldset class="starsign-fieldset">
+              <legend>Starsign Horoscope</legend>
+              <div class="starsign-input-row">
+                <label for="myList" class="flex-grow input-row-item"
+                  >Do you know your starsign?</label
+                >
+                <select id="myList" class="flex-grow input-row-item">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
 
-          <!--<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)"> -->
+              <!--<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)"> -->
 
-          <div class="starsign-input-row" id="dateInput" style="display:none;">
-            <label for="bday" class="flex-grow input-row-item"
-              >When is your birthday?</label
-            >
-            <input
-              id="bday"
-              type="date"
-              name="bday"
-              min="1900-01-01"
-              class="flex-grow input-row-item"
-            />
-          </div>
+              <div
+                class="starsign-input-row"
+                id="dateInput"
+                style="display:none;"
+              >
+                <label for="bday" class="flex-grow input-row-item"
+                  >When is your birthday?</label
+                >
+                <input
+                  id="bday"
+                  type="date"
+                  name="bday"
+                  min="1900-01-01"
+                  class="flex-grow input-row-item"
+                />
+              </div>
 
-          <div class="starsign-input-row" id="starsignInput">
-            <label for="starsignList" class="flex-grow input-row-item"
-              >What is your starsign?</label
-            >
-            <select id="starsignList" class="flex-grow input-row-item">
-              <option value="Aries">Aries</option>
-              <option value="Taurus">Taurus</option>
-              <option value="Gemini">Gemini</option>
-              <option value="Cancer">Cancer</option>
-              <option value="Leo">Leo</option>
-              <option value="Virgo">Virgo</option>
-              <option value="Libra">Libra</option>
-              <option value="Scorpio">Scorpio</option>
-              <option value="Sagittarius">Sagittarius</option>
-              <option value="Capricorn">Capricorn</option>
-              <option value="Aquarius">Aquarius</option>
-              <option value="Pisces">Pisces</option>
-            </select>
-          </div>
-        </fieldset>
-      </FORM>
+              <div class="starsign-input-row" id="starsignInput">
+                <label for="starsignList" class="flex-grow input-row-item"
+                  >What is your starsign?</label
+                >
+                <select id="starsignList" class="flex-grow input-row-item">
+                  <option value="Aries">Aries</option>
+                  <option value="Taurus">Taurus</option>
+                  <option value="Gemini">Gemini</option>
+                  <option value="Cancer">Cancer</option>
+                  <option value="Leo">Leo</option>
+                  <option value="Virgo">Virgo</option>
+                  <option value="Libra">Libra</option>
+                  <option value="Scorpio">Scorpio</option>
+                  <option value="Sagittarius">Sagittarius</option>
+                  <option value="Capricorn">Capricorn</option>
+                  <option value="Aquarius">Aquarius</option>
+                  <option value="Pisces">Pisces</option>
+                </select>
+              </div>
+            </fieldset>
+          </FORM>
+        </section>
+        <section id="results" style="display:none;">
+          <header>
+            <h2>
+              These are your results..
+            </h2>
+          </header>
+        </section>
+      </section>
+      <footer>
+        Made by Beamery Grads <cite>Lyndsey Scott, Antonio Gargaro</cite>
+      </footer>
     </main>
   </body>
 
@@ -161,6 +185,7 @@
 
     function addStarsignToPage(starsign) {
       let p_element = document.getElementById("starsignpara");
+      let section = document.getElementById("results");
       if (p_element) {
         p_element.textContent = starsign;
       } else {
@@ -168,12 +193,14 @@
         para.setAttribute("id", "starsignpara");
         let node = document.createTextNode(starsign);
         para.appendChild(node);
-        document.body.appendChild(para);
+        section.appendChild(para);
+        document.getElementById("results").style.display = "flex";
       }
       loadDoc(starsign);
     }
     function addAnimalToPage(animal) {
       let pa_element = document.getElementById("animalImage");
+      let section = document.getElementById("results");
       if (pa_element) {
         pa_element.setAttribute(
           "src",
@@ -186,7 +213,9 @@
           "Images/" + animal.toLowerCase() + ".png"
         );
         zodiacPic.setAttribute("id", "animalImage");
-        document.body.appendChild(zodiacPic);
+        zodiacPic.setAttribute("alt", "This is ?'s zodiac animal, " + animal);
+        section.appendChild(zodiacPic);
+        
       }
     }
 
@@ -195,6 +224,7 @@
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           let horoscope = JSON.parse(this.responseText)[starsign]["horoscope"];
+          let section = document.getElementById("results");
           /*console.log(horoscope); */
           let hor_element = document.getElementById("horoscopepara");
           if (hor_element) {
@@ -204,7 +234,7 @@
             para.setAttribute("id", "horoscopepara");
             let node = document.createTextNode(horoscope);
             para.appendChild(node);
-            document.body.appendChild(para);
+            section.appendChild(para);
           }
         }
       };
