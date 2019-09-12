@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Horoscope Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -17,7 +18,7 @@
             <h2>Enter your details to find out your horoscope:</h2>
           </header>
           <FORM NAME="myform" ACTION="" METHOD="GET">
-            <p>
+              <label for="name">Enter your name...</label>
               <INPUT
                 id="name"
                 TYPE="text"
@@ -25,8 +26,8 @@
                 NAME="inputbox"
                 VALUE=""
               />
-              <label for="name">Enter your name...</label>
-            </p>
+              
+            
             <fieldset class="starsign-fieldset">
               <legend>Starsign Horoscope</legend>
               <div class="starsign-input-row">
@@ -89,7 +90,9 @@
         </section>
       </section>
       <footer>
+        <p>
         Made by Beamery Grads <cite>Lyndsey Scott, Antonio Gargaro</cite>
+      </p>
       </footer>
     </main>
   </body>
