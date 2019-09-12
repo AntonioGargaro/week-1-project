@@ -177,7 +177,7 @@
       }
 
       addStarsignToPage(value);
-      addAnimalToPage(animal);
+      addAnimalToPage(animal, year);
     });
 
     document
@@ -197,11 +197,12 @@
         let node = document.createTextNode(starsign);
         para.appendChild(node);
         section.appendChild(para);
-        document.getElementById("results").style.display = "flex";
+        section.removeAttribute("style");
+        section.classList.add("results-section");
       }
       loadDoc(starsign);
     }
-    function addAnimalToPage(animal) {
+    function addAnimalToPage(animal, year) {
       let pa_element = document.getElementById("animalImage");
       let section = document.getElementById("results");
       if (pa_element) {
@@ -210,15 +211,25 @@
           "Images/" + animal.toLowerCase() + ".png"
         );
       } else {
+        let figure = document.createElement("figure")
+        let figcap = document.createElement("figcaption")
         let zodiacPic = document.createElement("img");
+
         zodiacPic.setAttribute(
           "src",
           "Images/" + animal.toLowerCase() + ".png"
         );
-        zodiacPic.setAttribute("id", "animalImage");
-        zodiacPic.setAttribute("alt", "This is ?'s zodiac animal, " + animal);
-        section.appendChild(zodiacPic);
-        
+        zodiacPic.setAttribute("alt", "?'s zodiac animal, a " + animal);
+        zodiacPic.classList.add("results-img");
+
+        let figcapNode = document.createTextNode("This is ?'s zodiac animal, the "+animal+" for the year " + year);
+        figcap.appendChild(figcapNode);
+
+        figure.setAttribute("id", "animalImage");
+        figure.appendChild(zodiacPic)
+        figure.appendChild(figcap)
+
+        section.appendChild(figure);
       }
     }
 
@@ -237,7 +248,11 @@
             para.setAttribute("id", "horoscopepara");
             let node = document.createTextNode(horoscope);
             para.appendChild(node);
-            section.appendChild(para);
+            
+            // Insert before animalImage if exists
+            let animalImage = document.getElementById("animalImage")
+            if (animalImage) section.insertBefore(para, animalImage);
+            else section.appendChild(para);
           }
         }
       };
