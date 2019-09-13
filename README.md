@@ -35,8 +35,10 @@ This project can be installed by,
 * Serve the index.html file
 
 
-## How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
+## Stretch Goals
+
+Our website accessibilty audit on Chrome got an initial score of 100 but we added further semantic HTML elements to improve it. For client-side validation we added a alert if a name was less than three characters and disabled the other form elements until a name was submitted. 
+In the future we want to add a visual validation when a name was submitted for the user and further improve the aesthetic of the website. 
 
 ## Credits
 Developed by Lyndsey Scott (@lyndseysc) and Antonio Gargaro (@antoniogargaro) for Beamery. 
