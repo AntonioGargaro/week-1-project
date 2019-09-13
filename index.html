@@ -11,13 +11,9 @@
   <body onload="init()">
     <main>
       <section id="horoscopeCalc">
-        <header>
         <h1>Calculate your horoscope here!</h1>
-      </header>
         <section id="input">
-          <header>
             <h2>Enter your details to find out your horoscope:</h2>
-          </header>
           <FORM NAME="firstForm">
               <label for="name">Enter your name...</label>
               <INPUT
@@ -66,6 +62,7 @@
                   >What is your starsign?</label
                 >
                 <select id="starsignList" class="flex-grow input-row-item" disabled>
+                  <option hidden disabled selected value> -- select an starsign -- </option>
                   <option value="Aries">Aries</option>
                   <option value="Taurus">Taurus</option>
                   <option value="Gemini">Gemini</option>
