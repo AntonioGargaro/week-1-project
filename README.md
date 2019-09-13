@@ -7,7 +7,7 @@ We were tasked with making a webpage that would change display depending on the 
  
 ## Screenshots
 
-<img src="screenshotresults.png" width="600">
+<img src="screenshotresults.jpg" width="600">
 
 ## Tech/framework used
 <b>Built with</b>
