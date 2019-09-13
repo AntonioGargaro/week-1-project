@@ -14,6 +14,7 @@ function init() {
       document.getElementById("starsignList").removeAttribute("disabled");
     });
 
+
   document.getElementById("myList").addEventListener("change", function(event) {
     if (event.target.value === "Yes") {
       document.getElementById("starsignInput").style.display = "flex";
@@ -23,6 +24,7 @@ function init() {
       document.getElementById("dateInput").style.display = "flex";
     }
   });
+
 
   document.getElementById("bday").addEventListener("change", function(event) {
     let birthday = new Date(event.target.value);
@@ -37,9 +39,8 @@ function init() {
 
     start = 1901;
     x = (start - year) % 12;
-    if (x == 1 || x == -11) {
-      animal = "Rat";
-    } else if (x == 0) {
+    
+    if (x == 0) {
       animal = "Ox";
     } else if (x == 11 || x == -1) {
       animal = "Tiger";
@@ -61,33 +62,35 @@ function init() {
       animal = "Dog";
     } else if (x == 2 || x == -10) {
       animal = "Boar";
+    } else if (x == 1 || x == -11) {
+      animal = "Rat";
     }
 
     let value;
 
-    if ((month == 1 && date >= 21) || (month == 2 && date <= 19)) {
+    if (month == 1 && date >= 21 || month == 2 && date <= 19) {
       value = "Aquarius";
-    } else if ((month == 2 && date >= 20) || (month == 3 && date <= 20)) {
+    } else if (month == 2 && date >= 20 || month == 3 && date <= 20) {
       value = "Pisces";
-    } else if ((month == 3 && date >= 21) || (month == 4 && date <= 19)) {
+    } else if (month == 3 && date >= 21 || month == 4 && date <= 19) {
       value = "Aries";
-    } else if ((month == 4 && date >= 21) || (month == 5 && date <= 21)) {
+    } else if (month == 4 && date >= 21 || month == 5 && date <= 21) {
       value = "Taurus";
-    } else if ((month == 5 && date >= 22) || (month == 6 && date <= 21)) {
+    } else if (month == 5 && date >= 22 || month == 6 && date <= 21) {
       value = "Gemini";
-    } else if ((month == 6 && date >= 22) || (month == 7 && date <= 23)) {
+    } else if (month == 6 && date >= 22 || month == 7 && date <= 23) {
       value = "Cancer";
-    } else if ((month == 7 && date >= 24) || (month == 8 && date <= 23)) {
+    } else if (month == 7 && date >= 24 || month == 8 && date <= 23) {
       value = "Leo";
-    } else if ((month == 8 && date >= 24) || (month == 9 && date <= 23)) {
+    } else if (month == 8 && date >= 24 || month == 9 && date <= 23) {
       value = "Virgo";
-    } else if ((month == 9 && date >= 24) || (month == 10 && date <= 23)) {
+    } else if (month == 9 && date >= 24 || month == 10 && date <= 23) {
       value = "Libra";
-    } else if ((month == 10 && date >= 24) || (month == 11 && date <= 22)) {
+    } else if (month == 10 && date >= 24 || month == 11 && date <= 22) {
       value = "Scorpio";
-    } else if ((month == 11 && date >= 23) || (month == 12 && date <= 21)) {
+    } else if (month == 11 && date >= 23 || month == 12 && date <= 21) {
       value = "Sagittarius";
-    } else if ((month == 12 && date >= 22) || (month == 1 && date <= 20)) {
+    } else if (month == 12 && date >= 22 || mmonth == 1 && date <= 20) {
       value = "Capricorn";
     }
 
@@ -101,6 +104,7 @@ function init() {
       addStarsignToPage(event.target.value);
     });
 }
+
 
 function addStarsignToPage(starsign) {
   let p_element = document.getElementById("starsignpara");
@@ -118,6 +122,8 @@ function addStarsignToPage(starsign) {
   }
   loadDoc(starsign);
 }
+
+
 function addAnimalToPage(animal, year) {
     // return on false positive
     if (!animal) return;
@@ -153,6 +159,7 @@ function addAnimalToPage(animal, year) {
     section.appendChild(figure);
   }
 }
+
 
 function loadDoc(starsign) {
   var xhttp = new XMLHttpRequest();
